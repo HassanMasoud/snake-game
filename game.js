@@ -13,7 +13,10 @@ const gameBoard = document.getElementById("game-board");
 
 function main(currentTime) {
   if (gameOver) {
-    return alert("YOU LOSE!");
+    if (confirm("You lost! Restart?")) {
+      window.location = "/";
+    }
+    return;
   }
   window.requestAnimationFrame(main);
   const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
